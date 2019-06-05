@@ -9,8 +9,6 @@
   background-color: #d0d9f5;
   min-height: 8vh;
   display: flex;
-  align-items: center;
-  justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
 }
