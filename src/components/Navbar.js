@@ -1,67 +1,30 @@
 import React from 'react'
 import '../stylesheets/navbar.css'
-import { stack as Menu } from 'react-burger-menu'
+import { makeStyles } from '@material-ui/core/styles'
+import IconButton from '@material-ui/core/IconButton'
+import MenuIcon from '@material-ui/icons/Menu'
 
-var styles = {
-  bmBurgerButton: {
-    position: 'fixed',
-    width: '36px',
-    height: '30px',
-    left: '36px',
-    top: '36px'
+const useStyles = makeStyles(theme => ({
+  button: {
+    margin: theme.spacing(1)
   },
-  bmBurgerBars: {
-    background: '#373a47'
-  },
-  bmBurgerBarsHover: {
-    background: '#a90000'
-  },
-  bmCrossButton: {
-    height: '24px',
-    width: '24px'
-  },
-  bmCross: {
-    background: '#bdc3c7'
-  },
-  bmMenuWrap: {
-    position: 'fixed',
-    height: '100%'
-  },
-  bmMenu: {
-    background: '#373a47',
-    padding: '2.5em 1.5em 0',
-    fontSize: '1.15em'
-  },
-  bmMorphShape: {
-    fill: '#373a47'
-  },
-  bmItemList: {
-    color: '#b8b7ad',
-    padding: '0.8em'
-  },
-  bmItem: {
-    display: 'inline-block'
-  },
-  bmOverlay: {
-    background: 'rgba(0, 0, 0, 0.3)'
+  input: {
+    display: 'none'
   }
-}
+}));
 
-class Navbar extends React.Component {
-  showSettings (event) {
-    event.preventDefault();
-  }
+
+export default function Navbar () {
   
-  render () {
-    return (
-    <div id='nav-container'>
-      <div id='logo'>LOGO</div>
-      <Menu styles={styles}>
-        <a id='home' className='menu-item' href='/'>Home</a>
-      </Menu>
-    </div>
-    )
-  }
+  const classes = useStyles();
+  
+  return (
+  <div id='nav-container'>
+    <div id='logo'>LOGO</div>
+    <IconButton classes={classes.button}>
+      <MenuIcon />
+    </IconButton>
+  </div>
+  )
 }
 
-export default Navbar
