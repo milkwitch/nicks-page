@@ -1,8 +1,15 @@
 .App {
   background-color: #d0d9f5;
-  text-align: center;
-  min-height: 100vh;
   min-width: 100vw;
+  min-height: 100vw;
+  text-align: center;
+}
+
+#bg-img {
+  display: block;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
 }
 
 .App-header {
