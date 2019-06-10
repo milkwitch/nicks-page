@@ -1,4 +1,5 @@
 import React from 'react'
+import {HashRouter, Route, Link} from 'react-router-dom'
 import '../stylesheets/navbar.css'
 import { makeStyles } from '@material-ui/core/styles'
 import Drawer from '@material-ui/core/Drawer'
@@ -9,7 +10,7 @@ import { ListItem, ListItemText } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
   button: {
-    margin: theme.spacing(1)
+    color: 'white'
   },
   input: {
     display: 'none'
@@ -52,9 +53,10 @@ export default function Navbar () {
   
   return (
   <div id='nav-container'>
-    <div id='logo'>LOGO</div>
-    <IconButton onClick={toggleDrawer('right', true)}>
-      <MenuIcon />
+    <Link to='/home'>LOGO</ Link>
+    <div id='name' >Nickolas Quinn</div>
+    <IconButton onClick={toggleDrawer('right', true)}  >
+      <MenuIcon className={classes.button} />
     </IconButton>
     <Drawer  anchor='right' open={state.right} onClose={toggleDrawer('right', false)}>
       {sideList('right')}
