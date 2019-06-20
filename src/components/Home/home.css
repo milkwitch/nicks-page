@@ -1,0 +1,11 @@
+#home-image {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+}
+
+#home-image > img {
+  display: block;
+  width: 100%;
+  height: auto;
+}

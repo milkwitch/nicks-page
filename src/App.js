@@ -1,19 +1,24 @@
 import React from 'react';
 import {HashRouter, Route} from 'react-router-dom'
 import './App.css';
-import Navbar from './components/Navbar'
-import MainImage from './components/MainImage';
-import yogaImg from './yoga-bg.jpg'
+import Navbar from './components/Navbar/Navbar'
+import Home from './components/Home/Home';
+import About from './components/About/About'
+import Contact from './components/Contact/Contact'
 
 function App() {
   return (
-    <HashRouter>
-      <div className="App" >
-        <img id='bg-img' src={yogaImg} alt='background' />
-        <Route path='/home' component={MainImage} />
+    <div className="App" >
+      <div className='background' >
+      <HashRouter>
+        <Home />
         <Navbar />
+          <Route path='/home' component={Home} />
+          <Route path='/about' component={About} />
+          <Route path='/contact' component={Contact} />
+      </ HashRouter>
       </div>
-    </ HashRouter>
+    </div>
   );
 }
 

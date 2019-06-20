@@ -1,12 +1,11 @@
 import React from 'react'
-import {HashRouter, Route, Link} from 'react-router-dom'
-import '../stylesheets/navbar.css'
 import { makeStyles } from '@material-ui/core/styles'
 import Drawer from '@material-ui/core/Drawer'
 import List from '@material-ui/core/List'
 import IconButton from '@material-ui/core/IconButton'
 import MenuIcon from '@material-ui/icons/Menu'
-import { ListItem, ListItemText } from '@material-ui/core';
+import { ListItem, ListItemText } from '@material-ui/core'
+import { Link } from 'react-router-dom'
 
 const useStyles = makeStyles(theme => ({
   button: {
@@ -22,7 +21,7 @@ const useStyles = makeStyles(theme => ({
 
 
 
-export default function Navbar () {
+export default function MenuContainer () {
   const classes = useStyles();
   const [state, setState] = React.useState({
     right: false
@@ -42,26 +41,28 @@ export default function Navbar () {
       onClick={toggleDrawer(side, false)}>
       
         <List>
-          {['Home', 'About', 'Contact'].map((text, index) => (
-            <ListItem button key={text}>
-            <ListItemText primary={text} />
+            <ListItem button component={Link} to='/home'>
+            <ListItemText primary='Home' />
             </ListItem>
-          ))}
+            <ListItem button component={Link} to='/about'>
+            <ListItemText primary='About' />
+            </ListItem>
+            <ListItem button component={Link} to='/contact' >
+            <ListItemText primary='Contact' />
+            </ListItem>
         </List>
       </div>
   )
   
   return (
-  <div id='nav-container'>
-    <Link to='/home'>LOGO</ Link>
-    <div id='name' >Nickolas Quinn</div>
-    <IconButton onClick={toggleDrawer('right', true)}  >
-      <MenuIcon className={classes.button} />
-    </IconButton>
-    <Drawer  anchor='right' open={state.right} onClose={toggleDrawer('right', false)}>
+    <div id='menu-btn-container'>
+      <IconButton onClick={toggleDrawer('right', true)}  >
+        <MenuIcon className={classes.button} />
+      </IconButton>
+      <Drawer  anchor='right' open={state.right} onClose={toggleDrawer('right', false)}>
       {sideList('right')}
-    </Drawer>
-  </div>
+      </Drawer>
+    </div>
   )
 }
 
