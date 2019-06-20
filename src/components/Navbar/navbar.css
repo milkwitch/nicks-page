@@ -1,0 +1,9 @@
+#nav-container {
+  display: flex;
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+  justify-content: space-around;
+  background-color: blanchedalmond;
+  opacity: 0.5;
+}
